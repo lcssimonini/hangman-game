@@ -1,4 +1,4 @@
-package com.simo.hangman.hangman.config;
+package com.simo.hangman.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

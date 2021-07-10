@@ -1,4 +1,4 @@
-package com.simo.hangman.hangman;
+package com.simo.hangman;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
