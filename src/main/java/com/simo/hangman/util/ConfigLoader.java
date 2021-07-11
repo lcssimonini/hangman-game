@@ -2,13 +2,12 @@ package com.simo.hangman.util;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.simo.hangman.domain.GameConfig;
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.ClassPathResource;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.ClassPathResource;
 
 @Slf4j
 @UtilityClass
