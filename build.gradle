@@ -80,6 +80,10 @@ sonarqube {
         property "sonar.exclusions", [
                 "**/com/simo/hangman/config/**",
                 "**/com/simo/hangman/domain/LetterGuess.java",
+                "**/com/simo/hangman/domain/PublicGameStatus.java",
+                "**/com/simo/hangman/domain/GameResult.java",
+                "**/com/simo/hangman/domain/GameConfig.java",
+                "**/com/simo/hangman/util/ConfigLoader.java",
                 "**/com/simo/hangman/HangmanApplication.java"
         ]
     }
