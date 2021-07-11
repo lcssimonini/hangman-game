@@ -77,9 +77,10 @@ sonarqube {
         property "sonar.projectKey", "lcssimonini_hangman-game"
         property "sonar.organization", "lcssimonini"
         property "sonar.host.url", "https://sonarcloud.io"
-        property 'sonar.exclusions',
+        property "sonar.exclusions", [
                 "**/com/simo/hangman/config/**",
                 "**/com/simo/hangman/domain/LetterGuess.java",
                 "**/com/simo/hangman/HangmanApplication.java"
+        ]
     }
 }
