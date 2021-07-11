@@ -11,6 +11,10 @@ runnning project build, test, sonarqube amalisys and heroku deployment.
 
 [sonarcloud](https://sonarcloud.io/dashboard?id=lcssimonini_hangman-game)
 
+### Endpoint to access project ###
+
+https://simo-hangman-game.herokuapp.com/
+
 ### Run project ###
 
 Before running the .jar, execute:
@@ -43,7 +47,11 @@ A POST request to the `/hangman/game` creates a new game that is sored in memory
 - gameResult - ONGOING, WON, LOST. A game does not receive updates unless is on the ONGOING status.
 
 
-After creating a new game, you can guess the letters sending a POST request to the `/hangman/game/{gameId}` endpoint.
+After creating a new game, you can guess the letters sending a POST request to the `/hangman/game/{gameId}` endpoint with the payload:
+
+```
+{"letter": "n"}
+```
 
 The game payload gets updated as the player tries more letters:
 
