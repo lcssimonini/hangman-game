@@ -14,6 +14,7 @@ public class GameConverter {
         .hits(game.getHits())
         .wrongGuessesCount(game.getWrongGuessesCount())
         .gameResult(game.getGameResult())
-        .build();
+        .guesses(game.getGuesses())
+            .build();
   }
 }

@@ -2,6 +2,8 @@ package com.simo.hangman.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Getter;
+
 import java.util.List;
 import java.util.Random;
 
@@ -10,6 +12,7 @@ public class GameConfig {
 
   private static final Integer MAX_MISSES_ALLOWED = 7;
 
+  @Getter
   @JsonProperty("word_list")
   public List<String> wordList;
 

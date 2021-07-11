@@ -2,11 +2,12 @@ package com.simo.hangman.service.impl;
 
 import com.simo.hangman.domain.Game;
 import com.simo.hangman.service.HangmanStorageService;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -38,5 +39,5 @@ public class HangmanMemoryStorageService implements HangmanStorageService {
     return game;
   }
 
-  static class GameDoesNotExistException extends RuntimeException {}
+  public static class GameDoesNotExistException extends RuntimeException {}
 }

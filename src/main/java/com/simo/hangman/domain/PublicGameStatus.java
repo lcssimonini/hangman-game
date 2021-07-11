@@ -1,9 +1,11 @@
 package com.simo.hangman.domain;
 
-import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Builder
@@ -11,7 +13,8 @@ import lombok.Getter;
 public class PublicGameStatus {
 
   private String gameId;
-  private Set<String> guesses;
+  @Builder.Default
+  private Set<String> guesses = new HashSet<>();
   private String gameStatus;
   private Integer wrongGuessesCount;
   private Integer hits;

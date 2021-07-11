@@ -1,10 +1,15 @@
-[![Build Status](https://travis-ci.com/lucas_cs_simonini/hangman.svg?branch=master)](https://travis-ci.com/lucas_cs_simonini/hangman)
-[![codecov](https://codecov.io/bb/lucas_cs_simonini/hangman/branch/master/graph/badge.svg)](https://codecov.io/bb/lucas_cs_simonini/hangman)
-
 ## Hangman game API ##
-### Link to access swagger ###
 
-[swagger](http://127.0.1.1:8081/hangman/swagger-ui/)
+This repo contains a API version of the hangman game. The continuous deployment is done using github actions, 
+runnning project build, test, sonarqube amalisys and heroku deployment.
+
+### Link to access swagger locally ###
+
+[swagger UI](http://127.0.1.1:8081/hangman/swagger-ui/)
+
+### Project sonarcloud analisys ###
+
+[sonarcloud](https://sonarcloud.io/dashboard?id=lcssimonini_hangman-game)
 
 ### Run project ###
 
