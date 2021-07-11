@@ -2,10 +2,9 @@ package com.simo.hangman.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import lombok.Getter;
-
 import java.util.List;
 import java.util.Random;
+import lombok.Getter;
 
 @JacksonXmlRootElement(localName = "hangman")
 public class GameConfig {
