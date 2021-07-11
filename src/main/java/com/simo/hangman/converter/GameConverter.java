@@ -7,13 +7,13 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class GameConverter {
 
-    public static PublicGameStatus fromGame(Game game) {
-        return PublicGameStatus.builder()
-                .gameId(game.getGameId())
-                .gameStatus(game.getGameStatus())
-                .hits(game.getHits())
-                .wrongGuessesCount(game.getWrongGuessesCount())
-                .gameResult(game.getGameResult())
-                .build();
-    }
+  public static PublicGameStatus fromGame(Game game) {
+    return PublicGameStatus.builder()
+        .gameId(game.getGameId())
+        .gameStatus(game.getGameStatus())
+        .hits(game.getHits())
+        .wrongGuessesCount(game.getWrongGuessesCount())
+        .gameResult(game.getGameResult())
+        .build();
+  }
 }

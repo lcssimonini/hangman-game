@@ -4,9 +4,9 @@ import com.simo.hangman.domain.Game;
 
 public interface HangmanStorageService {
 
-    Game saveGame(Game game);
+  Game saveGame(Game game);
 
-    void deleteGame(String gameId);
+  void deleteGame(String gameId);
 
-    Game fetchGameById(String gameId);
+  Game fetchGameById(String gameId);
 }

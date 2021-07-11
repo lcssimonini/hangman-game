@@ -21,7 +21,7 @@ To build the docker image and run the image as a container, run the following co
 
 ## Play the game ##
 
-A POST request to the `/hangman/game` creates a new game, the game response looks like this:
+A POST request to the `/hangman/game` creates a new game that is sored in memory, the game response looks like this:
 
 ```
 {

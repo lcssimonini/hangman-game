@@ -5,11 +5,11 @@ import com.simo.hangman.domain.PublicGameStatus;
 
 public interface HangmanService {
 
-    PublicGameStatus createNewGame();
+  PublicGameStatus createNewGame();
 
-    void deleteGame(String gameId);
+  void deleteGame(String gameId);
 
-    PublicGameStatus guessLetter(String gameId, String character);
+  PublicGameStatus guessLetter(String gameId, String character);
 
-    GameConfig getGameConfig();
+  GameConfig getGameConfig();
 }
