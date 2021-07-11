@@ -7,6 +7,8 @@ import com.simo.hangman.service.HangmanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequestMapping("/game")
 @RestController
 @RequiredArgsConstructor
@@ -20,7 +22,7 @@ public class GameController {
     }
 
     @PostMapping("/{gameId}")
-    public PublicGameStatus guessLetter(@PathVariable("gameId")  String gameId, @RequestBody LetterGuess letterGuess) {
+    public PublicGameStatus guessLetter(@PathVariable("gameId")  String gameId, @Valid @RequestBody LetterGuess letterGuess) {
         return hangmanService.guessLetter(gameId, letterGuess.getLetter());
     }
 

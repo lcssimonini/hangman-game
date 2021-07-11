@@ -1,13 +1,13 @@
 build_project() {
-  echo "----- Building restaurant search rank -----"
+  echo "----- Building hangman application -----"
   sh ./gradlew bootJar
 }
 
 run_project() {
-  echo "----- Running restaurant search rank -----"
-    docker build -t search-rank .
-    docker run search-rank
-    docker logs --tail=500 -f search-rank
+  echo "----- Running hangman application -----"
+    docker build -t hangman .
+    docker run hangman
+    docker logs --tail=500 -f hangman
 }
 
 build_project && run_project
