@@ -69,7 +69,7 @@ jacocoTestReport {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "lcssimonini_hangman"
+        property "sonar.projectKey", "lcssimonini_hangman-game"
         property "sonar.organization", "lcssimonini"
         property "sonar.host.url", "https://sonarcloud.io"
     }
