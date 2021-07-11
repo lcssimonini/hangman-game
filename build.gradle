@@ -59,6 +59,8 @@ spotless {
 
 build.dependsOn(spotlessApply)
 
+build.dependsOn(sonarqube)
+
 test {
     finalizedBy jacocoTestReport
 }

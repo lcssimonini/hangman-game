@@ -37,6 +37,7 @@ public class HangmanServiceImpl implements HangmanService {
     log.info("Guessing letter {} on game {}", letter, gameId);
     Game game = storageService.fetchGameById(gameId);
     game.guessLetter(letter.toUpperCase());
+    storageService.saveGame(game);
     return GameConverter.fromGame(game);
   }
 
