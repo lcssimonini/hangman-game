@@ -2,7 +2,6 @@
 [![codecov](https://codecov.io/bb/lucas_cs_simonini/hangman/branch/master/graph/badge.svg)](https://codecov.io/bb/lucas_cs_simonini/hangman)
 
 ## Hangman game API ##
-
 ### Link to access swagger ###
 
 [swagger](http://127.0.1.1:8081/hangman/swagger-ui/)
