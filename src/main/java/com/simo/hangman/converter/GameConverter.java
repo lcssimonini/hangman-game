@@ -13,6 +13,7 @@ public class GameConverter {
                 .gameStatus(game.getGameStatus())
                 .hits(game.getHits())
                 .wrongGuessesCount(game.getWrongGuessesCount())
+                .gameResult(game.getGameResult())
                 .build();
     }
 }

@@ -28,9 +28,16 @@ public class HangmanServiceImpl implements HangmanService {
     }
 
     @Override
-    public PublicGameStatus guessLetter(String gameId, Character character) {
+    public void deleteGame(String gameId) {
+        storageService.deleteGame(gameId);
+    }
+
+    @Override
+    public PublicGameStatus guessLetter(String gameId, String letter) {
+        log.info("Guessing letter {} on game {}", letter, gameId);
         Game game = storageService.fetchGameById(gameId);
-        return null;
+        game.guessLetter(letter.toUpperCase());
+        return GameConverter.fromGame(game);
     }
 
     @Override

@@ -9,7 +9,6 @@ import java.util.List;
 public class StringUtil {
 
     public static List<Integer> findAllIndexes(String word, String letter) {
-
         List<Integer> indexes = new ArrayList<>();
         int index = 0;
         while(index != -1){

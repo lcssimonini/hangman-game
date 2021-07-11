@@ -16,4 +16,5 @@ public class PublicGameStatus {
     private String gameStatus;
     private Integer wrongGuessesCount;
     private Integer hits;
+    private GameResult gameResult;
 }

@@ -18,7 +18,15 @@ public class HangmanMemoryStorageService implements HangmanStorageService {
 
     @Override
     public Game saveGame(Game game) {
-        return gameStorage.put(game.getGameId(), game);
+        gameStorage.put(game.getGameId(), game);
+        return game;
+    }
+
+    @Override
+    public void deleteGame(String gameId) {
+        if(gameId != null) {
+            gameStorage.remove(gameId);
+        }
     }
 
     @Override

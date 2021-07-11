@@ -7,7 +7,9 @@ public interface HangmanService {
 
     PublicGameStatus createNewGame();
 
-    PublicGameStatus guessLetter(String gameId, Character character);
+    void deleteGame(String gameId);
+
+    PublicGameStatus guessLetter(String gameId, String character);
 
     GameConfig getGameConfig();
 }

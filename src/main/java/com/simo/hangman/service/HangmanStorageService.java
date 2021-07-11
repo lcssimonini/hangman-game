@@ -6,5 +6,7 @@ public interface HangmanStorageService {
 
     Game saveGame(Game game);
 
+    void deleteGame(String gameId);
+
     Game fetchGameById(String gameId);
 }

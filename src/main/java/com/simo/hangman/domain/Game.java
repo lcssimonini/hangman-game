@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import static com.simo.hangman.domain.GameResult.*;
 import static com.simo.hangman.util.StringUtil.findAllIndexes;
 
 @Data
@@ -22,7 +23,9 @@ public class Game {
     private Integer wrongGuessesCount = 0;
     @Builder.Default
     private Integer hits = 0;
-    private Integer maxMissesAllowed = 0;
+    private Integer maxMissesAllowed;
+    @Builder.Default
+    private GameResult gameResult = ONGOING;
 
     public static Game buildGame(GameConfig gameConfig) {
         Game game =  Game.builder()
@@ -34,31 +37,53 @@ public class Game {
         return game;
     }
 
-    public void guessLetter(Character letter) {
-        guesses.add(letter.toString());
-        if (word.contains(letter.toString())) {
-            handleLetterHit(letter);
-        } else {
-            wrongGuessesCount++;
+    public void guessLetter(String letter) {
+        if(ongoingGame()) {
+            handleLetterGuess(letter);
         }
     }
 
-    private void handleLetterHit(Character letter) {
-        hits++;
-        updateStatus(letter);
+    private void handleLetterGuess(String letter) {
+        if (word.contains(letter)) {
+            handleLetterHit(letter);
+        } else {
+            handleLetterMiss();
+        }
+        guesses.add(letter);
     }
 
-    private void updateStatus(Character letter) {
+    private void handleLetterMiss() {
+        wrongGuessesCount++;
+        if (lostGame()) {
+            setGameResult(LOST);
+        }
+    }
+
+    private void handleLetterHit(String letter) {
+        if (!guesses.contains(letter)) {
+            hits++;
+        }
+        updateGameStatus(letter);
+        if (wonGame()) {
+            setGameResult(WON);
+        }
+    }
+
+    private void updateGameStatus(String letter) {
         StringBuilder newStatus = new StringBuilder(gameStatus);
-        findAllIndexes(letter.toString(), word).forEach(index -> newStatus.setCharAt(index, letter));
+        findAllIndexes(word, letter).forEach(index -> newStatus.setCharAt(index, letter.charAt(0)));
         gameStatus = newStatus.toString();
     }
 
-    public Boolean wonGame() {
+    private Boolean ongoingGame() {
+        return gameResult.equals(ONGOING);
+    }
+
+    private Boolean wonGame() {
         return hits.equals(word.length());
     }
 
-    public Boolean lostGame() {
+    private Boolean lostGame() {
         return wrongGuessesCount.equals(maxMissesAllowed);
     }
 }

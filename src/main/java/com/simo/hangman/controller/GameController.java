@@ -1,13 +1,11 @@
 package com.simo.hangman.controller;
 
 import com.simo.hangman.domain.GameConfig;
+import com.simo.hangman.domain.LetterGuess;
 import com.simo.hangman.domain.PublicGameStatus;
 import com.simo.hangman.service.HangmanService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/game")
 @RestController
@@ -19,6 +17,16 @@ public class GameController {
     @PostMapping
     public PublicGameStatus createNewGame() {
         return hangmanService.createNewGame();
+    }
+
+    @PostMapping("/{gameId}")
+    public PublicGameStatus guessLetter(@PathVariable("gameId")  String gameId, @RequestBody LetterGuess letterGuess) {
+        return hangmanService.guessLetter(gameId, letterGuess.getLetter());
+    }
+
+    @DeleteMapping("/{gameId}")
+    public void deleteGame(@PathVariable("gameId")  String gameId) {
+        hangmanService.deleteGame(gameId);
     }
 
     @GetMapping("/available-words")
