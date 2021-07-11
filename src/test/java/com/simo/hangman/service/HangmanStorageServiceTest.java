@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class HangmanStorageServiceTest {
+class HangmanStorageServiceTest {
 
   @Autowired private HangmanStorageService storageService;
 
   @Test
-  public void shouldSaveAndRetrieveGame() {
+  void shouldSaveAndRetrieveGame() {
     String gameId = "gameId";
     Game game = Game.builder().gameId(gameId).build();
     storageService.saveGame(game);
@@ -24,7 +24,7 @@ public class HangmanStorageServiceTest {
   }
 
   @Test
-  public void shouldthrowGameDoesNotExist() {
+  void shouldthrowGameDoesNotExist() {
     String gameId = "inexistent";
     assertThrows(
         HangmanMemoryStorageService.GameDoesNotExistException.class,
@@ -32,7 +32,7 @@ public class HangmanStorageServiceTest {
   }
 
   @Test
-  public void shouldDeleteGame() {
+  void shouldDeleteGame() {
     String gameId = "gameId";
     Game game = Game.builder().gameId(gameId).build();
     storageService.saveGame(game);
@@ -45,7 +45,7 @@ public class HangmanStorageServiceTest {
   }
 
   @Test
-  public void shouldNotThrowWhenDeletingNullKey() {
+  void shouldNotThrowWhenDeletingNullKey() {
     assertDoesNotThrow(() -> storageService.deleteGame(null));
   }
 }

@@ -7,12 +7,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import org.junit.jupiter.api.Test;
 
-public class GameTest {
+class GameTest {
 
   private final GameConfig gameConfiguration = getGameConfiguration();
 
   @Test
-  public void shouldBuildGameFromConfig() {
+  void shouldBuildGameFromConfig() {
     Game game = Game.buildGame(gameConfiguration);
     assertNotNull(game.getGameId());
     assertNotNull(game.getWord());
@@ -24,7 +24,7 @@ public class GameTest {
   }
 
   @Test
-  public void shouldHandleCorrectGuess() {
+  void shouldHandleCorrectGuess() {
     Game game = Game.buildGame(gameConfiguration);
     String word = game.getWord();
     String letter = word.substring(0, 1);
@@ -37,7 +37,7 @@ public class GameTest {
   }
 
   @Test
-  public void shouldHandleWrongGuess() {
+  void shouldHandleWrongGuess() {
     Game game = Game.buildGame(getOneWordConfig());
     String letter = "X";
     game.guessLetter(letter);
@@ -49,7 +49,7 @@ public class GameTest {
   }
 
   @Test
-  public void shouldWinGame() {
+  void shouldWinGame() {
     Game game = Game.buildGame(getOneWordConfig());
     String letter01 = "O";
     String letter02 = "I";
@@ -67,7 +67,7 @@ public class GameTest {
   }
 
   @Test
-  public void shouldLooseGame() {
+  void shouldLooseGame() {
     Game game = Game.buildGame(getOneWordConfig());
     String letter = "x";
     game.guessLetter(letter);

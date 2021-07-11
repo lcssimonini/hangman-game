@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-public class StringUtilTest {
+class StringUtilTest {
 
   @Test
-  public void shouldFindCharIndexes() {
+  void shouldFindCharIndexes() {
 
     assertEquals(Arrays.asList(1, 3, 5), findAllIndexes("batata", "a"));
     assertEquals(Arrays.asList(0, 2), findAllIndexes("ovo", "o"));

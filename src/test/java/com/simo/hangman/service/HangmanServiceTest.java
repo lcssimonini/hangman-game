@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class HangmanServiceTest {
+class HangmanServiceTest {
 
   @Autowired private HangmanService gameService;
 
   @Test
-  public void shouldCreateGame() {
+  void shouldCreateGame() {
     PublicGameStatus publicGameStatus = gameService.createNewGame();
     assertNotNull(publicGameStatus.getGameId());
     assertTrue(publicGameStatus.getGuesses().isEmpty());
@@ -26,13 +26,13 @@ public class HangmanServiceTest {
   }
 
   @Test
-  public void shouldDeleteGame() {
+  void shouldDeleteGame() {
     PublicGameStatus publicGameStatus = gameService.createNewGame();
     assertDoesNotThrow(() -> gameService.deleteGame(publicGameStatus.getGameId()));
   }
 
   @Test
-  public void shouldHandleLetterGuess() {
+  void shouldHandleLetterGuess() {
     PublicGameStatus publicGameStatus = gameService.createNewGame();
     String character = "a";
     PublicGameStatus newStatus = gameService.guessLetter(publicGameStatus.getGameId(), character);
@@ -41,7 +41,7 @@ public class HangmanServiceTest {
   }
 
   @Test
-  public void shouldHandleGameLost() {
+  void shouldHandleGameLost() {
     PublicGameStatus publicGameStatus = gameService.createNewGame();
     String character = "z";
     gameService.guessLetter(publicGameStatus.getGameId(), character);
@@ -57,7 +57,7 @@ public class HangmanServiceTest {
   }
 
   @Test
-  public void getGameConfig() {
+  void getGameConfig() {
     GameConfig gameConfig = gameService.getGameConfig();
     assertFalse(gameConfig.getWordList().isEmpty());
   }

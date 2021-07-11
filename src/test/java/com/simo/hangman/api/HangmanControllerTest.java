@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class HangmanControllerTest {
+class HangmanControllerTest {
 
   private static final String GAME_PATH = "/game";
 
@@ -26,7 +26,7 @@ public class HangmanControllerTest {
   @Autowired private ObjectMapper objectMapper;
 
   @Test
-  public void shouldCreateGame() throws Exception {
+  void shouldCreateGame() throws Exception {
     mvc.perform(post(GAME_PATH).contentType(APPLICATION_JSON).accept(APPLICATION_JSON))
         .andExpect(status().is2xxSuccessful())
         .andExpect(jsonPath("$.gameResult", is(ONGOING.toString())))
@@ -36,7 +36,7 @@ public class HangmanControllerTest {
   }
 
   @Test
-  public void shouldGuessLetter() throws Exception {
+  void shouldGuessLetter() throws Exception {
     String response =
         mvc.perform(post(GAME_PATH).contentType(APPLICATION_JSON).accept(APPLICATION_JSON))
             .andExpect(status().is2xxSuccessful())
@@ -58,7 +58,7 @@ public class HangmanControllerTest {
   }
 
   @Test
-  public void shouldDeleteGame() throws Exception {
+  void shouldDeleteGame() throws Exception {
     String response =
         mvc.perform(post(GAME_PATH).contentType(APPLICATION_JSON).accept(APPLICATION_JSON))
             .andExpect(status().is2xxSuccessful())
@@ -70,10 +70,18 @@ public class HangmanControllerTest {
 
     mvc.perform(delete(GAME_PATH + "/" + gameStatus.getGameId()))
         .andExpect(status().is2xxSuccessful());
+
+    String letter = "a";
+    mvc.perform(
+            post(GAME_PATH + "/" + gameStatus.getGameId())
+                .content(
+                    objectMapper.writeValueAsString(LetterGuess.builder().letter(letter).build()))
+                .contentType(APPLICATION_JSON))
+        .andExpect(status().isNotFound());
   }
 
   @Test
-  public void shouldGetGameConfig() throws Exception {
+  void shouldGetGameConfig() throws Exception {
     mvc.perform(get(GAME_PATH + "/available-words").contentType(APPLICATION_JSON))
         .andExpect(status().is2xxSuccessful())
         .andExpect(jsonPath("$.word_list", not(empty())));
